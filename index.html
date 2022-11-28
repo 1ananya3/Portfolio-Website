@@ -49,21 +49,15 @@
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/in/ananya-mohanta-193141225/" target="_blank"
+                    <a href="https://twitter.com/AnanyaMohanta5?t=T734hk8WR8ubL_1lprjvOw&s=08/" target="_blank"
                       class="text-gray-500 hover:text-white dark:hover:bg-black">
                       <img class="w-7" src="../Images/twitter.png" />
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/in/ananya-mohanta-193141225/" target="_blank"
+                    <a href="https://github.com/1ananya3/" target="_blank"
                       class="text-gray-500 hover:text-white dark:hover:bg-black">
-                      <img class="w-7" src="../Images/instagram.png" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/ananya-mohanta-193141225/" target="_blank"
-                      class="text-gray-500 hover:text-white dark:hover:bg-black">
-                      <img class="w-7" src="../Images/facebook.png" />
+                      <img class="w-7" src="../Images/github.png" />
                     </a>
                   </li>
                 </ul>
@@ -204,37 +198,37 @@
               Touch
             </h2>
 
-            <form  class="space-y-8">
+            <form name="submit-to-google-sheet" class="space-y-8">
               <div>
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
                   name</label>
-                <input type="text" id="name"
+                <input type="text" id="name" name="Name"
                   class="block p-3 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   placeholder="Your name" required />
               </div>
               <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
                   email</label>
-                <input type="email" id="email"
+                <input type="email" id="email" name="Email"
                   class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   placeholder="example123@gmail.com" required />
               </div>
               <div>
                 <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your contact
                   no</label>
-                <input type="number" id="number"
+                <input type="number" id="number" name="Contact"
                   class="block p-3 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   placeholder="Your contact no" required />
               </div>
               <div class="sm:col-span-2">
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your
                   message</label>
-                <textarea id="message" rows="6"
+                <textarea id="message" rows="6" name="Message"
                   class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Drop a message..."></textarea>
               </div>
               <button
-                class="mybtn bg-black hover:bg-white text-white hover:text-black border border-black font-bold py-2 px-4 rounded-full" onclick="sendEmail()">
+                class="mybtn bg-black hover:bg-white text-white hover:text-black border border-black font-bold py-2 px-4 rounded-full" >
                 Send message
               </button>
             </form>
@@ -248,26 +242,18 @@
         </div>
       </div>
   </main>
-  <!-- <script src="https://smtpjs.com/v3/smtp.js"></script>
+  
   <script>
-    function sendEmail() {
-      Email.send({
-          Host : "smtp.gmail.com",
-          Username : "ananyamohanta33@gmail.com",
-          Password : "AnanyA#2000",
-          To : 'ananyamohanta33@gmail.com',
-          From : document.getElementById("email").value,
-          Subject : "Get in touch",
-          Body : "Name :" + document.getElementById("name").value +
-              "<br> Email :" + document.getElementById("email").value +
-              "<br> Phone no :" + document.getElementById("number").value +
-              "<br> Message: " + document.getElementById("message").value
-      }).then(
-        message => alert("Message sent Successfully.")
-      );
-
-}
-  </script> -->
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx-7MGBkLJYSbAe4bvv4PfkFnz3YGrof9SFzGPctZo7Y3OK_R2JjeM3Fb0dry1FQ4ImKA/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 
 </html>
